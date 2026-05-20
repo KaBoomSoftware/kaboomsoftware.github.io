@@ -1,5 +1,4 @@
 :root {
-  color-scheme: dark;
   --bg: #050914;
   --bg-soft: #0b1220;
   --text: #f4f7fb;
@@ -13,31 +12,20 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  min-width: 320px;
-  min-height: 100vh;
   margin: 0;
-  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 20% 20%, rgba(31, 111, 255, 0.22), transparent 32%),
     radial-gradient(circle at 80% 70%, rgba(31, 111, 255, 0.13), transparent 36%),
     linear-gradient(135deg, #030712 0%, #07111f 55%, #020617 100%);
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Inter,
-    Arial,
-    sans-serif;
+  overflow-x: hidden;
 }
 
 body::before {
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -45,7 +33,6 @@ body::before {
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
-  content: "";
   mask-image: radial-gradient(circle at center, black, transparent 75%);
 }
 
@@ -57,19 +44,18 @@ a {
 .page {
   position: relative;
   z-index: 1;
-  display: flex;
   min-height: 100vh;
+  display: flex;
   flex-direction: column;
   padding: 32px;
 }
 
-.site-header,
-.site-footer {
+.site-header {
   display: flex;
-  width: min(1120px, 100%);
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  max-width: 1120px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -77,52 +63,53 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.03em;
+  font-size: 22px;
 }
 
 .logo {
-  display: grid;
   width: 42px;
   height: 42px;
-  place-items: center;
   border-radius: 12px;
+  display: grid;
+  place-items: center;
   background: linear-gradient(135deg, #1f6fff, #0b47bd);
   box-shadow: 0 0 32px rgba(31, 111, 255, 0.35);
-  font-size: 26px;
   font-weight: 900;
+  font-size: 26px;
 }
 
 .status {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 10px 14px;
   color: var(--muted);
+  font-size: 14px;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(12px);
-  font-size: 14px;
 }
 
 main {
-  display: grid;
   flex: 1;
+  display: grid;
   place-items: center;
   padding: 80px 0;
 }
 
 .hero {
-  width: min(960px, 100%);
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+  padding: 64px 32px;
   border: 1px solid var(--border);
   border-radius: 32px;
-  padding: 64px 32px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025)),
     rgba(5, 9, 20, 0.72);
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  text-align: center;
   backdrop-filter: blur(18px);
 }
 
@@ -138,8 +125,8 @@ main {
 h1 {
   margin: 0;
   font-size: clamp(44px, 8vw, 92px);
-  letter-spacing: -0.075em;
   line-height: 0.92;
+  letter-spacing: -0.075em;
 }
 
 .accent {
@@ -149,7 +136,7 @@ h1 {
 }
 
 .subtitle {
-  max-width: 700px;
+  max-width: 640px;
   margin: 28px auto 0;
   color: var(--muted);
   font-size: clamp(17px, 2vw, 21px);
@@ -159,68 +146,43 @@ h1 {
 .divider {
   width: 120px;
   height: 1px;
-  margin: 34px auto;
+  margin: 36px auto;
   background: linear-gradient(90deg, transparent, var(--blue), transparent);
-}
-
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 26px;
-}
-
-.service-tags span {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 9px 12px;
-  color: rgba(244, 247, 251, 0.86);
-  background: rgba(255, 255, 255, 0.035);
-  font-size: 14px;
 }
 
 .contacts {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .contact {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 13px 18px;
   color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.04);
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
+  padding: 13px 18px;
+  border-radius: 14px;
+  transition: 0.2s ease;
 }
 
-.contact-primary {
-  border-color: rgba(31, 111, 255, 0.46);
-  background: var(--blue-soft);
-}
-
-.contact:hover,
-.contact:focus-visible {
+.contact:hover {
   border-color: rgba(31, 111, 255, 0.65);
   background: var(--blue-soft);
   transform: translateY(-1px);
 }
 
-.projects-note {
-  margin: 24px 0 0;
-  color: rgba(156, 168, 186, 0.78);
-  font-size: 14px;
-}
-
 .site-footer {
-  flex-wrap: wrap;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
   color: rgba(156, 168, 186, 0.75);
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 640px) {
@@ -230,71 +192,20 @@ h1 {
 
   .site-header {
     align-items: flex-start;
-    flex-direction: column;
     gap: 18px;
-  }
-
-  .brand {
-    font-size: 20px;
-  }
-
-  .status {
-    width: 100%;
-    padding: 9px 12px;
-    font-size: 13px;
-    text-align: center;
-  }
-
-  main {
-    padding: 34px 0;
+    flex-direction: column;
   }
 
   .hero {
+    padding: 48px 22px;
     border-radius: 24px;
-    padding: 36px 22px;
-  }
-
-  .eyebrow {
-    margin-bottom: 16px;
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: clamp(40px, 11vw, 54px);
-    letter-spacing: -0.055em;
-  }
-
-  .subtitle {
-    margin-top: 24px;
-    font-size: 16px;
-  }
-
-  .divider {
-    margin: 24px auto;
-  }
-
-  .service-tags {
-    gap: 8px;
-    margin-bottom: 22px;
-  }
-
-  .service-tags span {
-    padding: 8px 10px;
-    font-size: 13px;
   }
 
   .contacts {
     flex-direction: column;
-    gap: 10px;
   }
 
   .contact {
     width: 100%;
-    padding: 12px 14px;
-  }
-
-  .projects-note {
-    margin-top: 18px;
-    font-size: 13px;
   }
 }
