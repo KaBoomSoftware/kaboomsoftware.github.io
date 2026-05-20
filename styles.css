@@ -143,6 +143,15 @@ h1 {
   line-height: 1.6;
 }
 
+.specialties {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: rgba(244, 247, 251, 0.82);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
 .divider {
   width: 120px;
   height: 1px;
@@ -197,15 +206,40 @@ h1 {
   }
 
   .hero {
-    padding: 48px 22px;
+    padding: 40px 22px;
     border-radius: 24px;
+  }
+
+  .eyebrow {
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 11vw, 58px);
+  }
+
+  .subtitle {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  .specialties {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .divider {
+    margin: 26px auto;
   }
 
   .contacts {
     flex-direction: column;
+    gap: 10px;
   }
 
   .contact {
     width: 100%;
+    padding: 12px 16px;
   }
 }
